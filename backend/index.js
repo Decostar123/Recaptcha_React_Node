@@ -27,14 +27,18 @@ app.use(
 
   app.post("/verify-token", async (req,res) => {
     try{
-        console.log( ".......----") ; 
-        console.log( " request came in the verify token server  " , req ) ; 
+      // THE SERVER IS JUST DOING ONE THING, 
+      // IT IS SIMPLY VERIFYING BY SENDING THE TOKEN AND SECRET KEY 
+      // THE TOKEN IS STARIGHT FORWARD 
+      // THE SECRET KEY IS FROM THE USEREF 
+        // console.log( ".......----") ; 
+        // console.log( " request came in the verify token server  " , req ) ; 
         let token = req.body;
-        console.log( " 1  1 1 ") ; 
+        // console.log( " 1  1 1 ") ; 
         console.log( req.body ) ; 
         console.log( token ) ; 
 
-        console.log( "------" , process.env.SECRET_KEY) ; 
+        // console.log( "------" , process.env.SECRET_KEY) ; 
         // replace APP_SECRET_KEY with your reCAPTCHA secret key
         let response = await axios.post( `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.SECRET_KEY}&response=${token}`);
         return res.status(200).json({
